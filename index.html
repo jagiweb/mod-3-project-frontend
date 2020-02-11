@@ -25,7 +25,7 @@
 
 <body>
 
-
+<div class="container mariola">
     <div class="modal fade" id="signup">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -36,7 +36,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                        <form >
+                        <form  id="signup-form">
                                 <input id="username" type="text" name="username" placeholder="Username"/>
                                 <input id="email" type="text" name="email" placeholder="Email"/>
                                 <input id="password" type="text" name="password" placeholder="password"/>
@@ -61,7 +61,8 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup">Sign Up</button>
             </div>
             <div class="col">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signin">Sign In</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" id="signin-id" data-target="
+                        #signin">Sign In</button>
             </div>
         </div>
     </div>
@@ -76,10 +77,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                            <form >
-                                    <input id="email" type="text" name="email" placeholder="Email"/>
-                                    <input id="password" type="text" name="password" placeholder="password"/>
-                                    <input type="submit" value="Submit"/>
+                            <form id="" >
+                                    <input id="email-signin" type="text" name="email" placeholder="Email"/>
+                                    <input id="password-signin" type="text" name="password" placeholder="password"/>
+                                    <button id="signin-form">login</button>
                             </form>
                     </div>
                     <div class="modal-footer">
@@ -88,7 +89,7 @@
                 </div>
             </div>
         </div>
-
+</div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

@@ -151,6 +151,10 @@ addEventListener('DOMContentLoaded', function () {
         ulMenu.classList.add('sidebar-nav')
         const bmrLi = document.createElement('li')
         const aBmr = document.createElement('a')
+        aBmr.id = 'brm-update'
+        // aBmr.setAttribute('type', 'button')
+        aBmr.setAttribute('data-toggle', 'modal')
+        aBmr.setAttribute('data-target', '#bmr-form')
         bmrLi.append(aBmr)
         aBmr.innerText = "Update BMR"
         aBmr.href = "#"
@@ -232,7 +236,7 @@ addEventListener('DOMContentLoaded', function () {
 
     function caloriesTrackers(user) {
         const allContentDiv = document.querySelector('.all-content')
-
+        updateBmr(user)
         const breakfastLunchDiv = document.createElement('div')
         breakfastLunchDiv.classList = 'row'
         const dinnerSnackDiv = document.createElement('div')
@@ -317,12 +321,13 @@ addEventListener('DOMContentLoaded', function () {
                     body: JSON.stringify({
                         name: food,
                         calories: caloriesd,
-                        day_id: user.days[user.days.length -1].id
+                        day_id: user.days[user.days.length - 1].id
                     })
                 }
-                console.log(user.days[0].foods)
+                // console.log(user.days[0].foods)
                 fetch(foodsURL, configurationObject)
                     .then(resp => resp.json())
+                    .then(user => foodItem(user))
                     
                 caloriesForm.removeEventListener("click", _listener, true);
 
@@ -331,6 +336,66 @@ addEventListener('DOMContentLoaded', function () {
         })
     }
 
+        function foodItem(user) {
+            let caloriesd = document.querySelector('input[name="calories"]').value
+                let caloriesID = document.querySelector("#calories-number")
+                caloriesID.innerText = parseInt(caloriesID.innerText) - caloriesd
+            const configurationObject = {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    calories: caloriesID.innerText
+                })
+            }
+                fetch(daysURL + user.days[user.days.length - 1].id, configurationObject)
+                    .then(resp => resp.json())
+
+        }
+    
+    function updateBmr(user) {
+        const updateBMR = document.querySelector("#brm-update")
+        updateBMR.addEventListener('click', function (e) {
+            console.log('lala')
+            const updateBMRform = document.querySelector('#bmr-form')
+            updateBMRform.addEventListener('submit', function (e) {
+                e.preventDefault()
+                let age = document.querySelector('input[name="age"]').value
+                let weight = document.querySelector('input[name="weight"]').value
+                let height = document.querySelector('input[name="height"]').value
+
+                let bmr = 0
+                if (user.sex === "female" || user.sex === "Female") {
+                    bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (5.677 * age)
+                } else {
+                    bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (6.8 * age)
+                }
+                let updatedBMR = bmr.toFixed(1)
+
+                const newBMR = {
+                    age: age,
+                    weight: weight,
+                    height: height,
+                    bmr: parseInt(updatedBMR)
+                }
+                let configurationObject = {
+                    method: 'PATCH',
+                    headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify(newBMR)
+                }
+
+                fetch(usersURL + user.id, configurationObject)
+                    .then(resp => resp.json())
+                    // .then(user => renderUser(user))
+            })
+        })
+    }
+    
     /// END OF CONTENT LOADED
 })
 // function createFormCalories(){

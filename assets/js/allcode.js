@@ -214,17 +214,11 @@ addEventListener('DOMContentLoaded', function () {
         caloriesNumber.id = "calories-number"
         // debugger
 
-        const bmrDiv3 = document.createElement('div')
-        bmrDiv3.classList = 'col-lg-6 text-center'
-        let progressTitle = document.createElement('p')
-        progressTitle.innerText = 'Your Weekly Progress:'
-
         caloriesNumber.innerText = user.days[user.days.length - 1].calories
 
         bmrDiv2.append(caloriesTitle, caloriesNumber)
         bmrDiv1.append(bmrTitle, bmrNumber)
-        bmrDiv3.append(progressTitle)
-        boxesDiv.append(bmrDiv1, bmrDiv2, bmrDiv3)
+        boxesDiv.append(bmrDiv1, bmrDiv2)
     }
 
     function caloriesTrackers(user) {
@@ -288,85 +282,103 @@ addEventListener('DOMContentLoaded', function () {
 
         dinnerSnackDiv.append(dinnerDiv, snackDiv)
 
-        // snackButton.addEventListener("click", function (e) {
-        //     e.preventDefault()
-        //     createFormCalories()
-        // })
-
-        /////////////// HERE WAS THE PATCH WORKING ////////////////
-        const caloriesForm = document.querySelector('#calories-form')
-        caloriesForm.addEventListener('submit', function _listener(e) {
-            // debugger
+        snackButton.addEventListener("click", function (e) {
             e.preventDefault()
-            let food = document.querySelector('input[name="food"]').value
-            let caloriesd = document.querySelector('input[name="calories"]').value
-            if (caloriesd) {
-                let caloriesID = document.querySelector("#calories-number")
-                // let totalCalories = user.days[user.days.length - 1].calories - caloriesd
-                caloriesID.innerText = parseInt(caloriesID.innerText) - caloriesd
-
-                let configurationObject = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify({
-                        name: food,
-                        calories: caloriesd,
-                        day_id: user.days[user.days.length -1].id
-                    })
-                }
-                console.log(user.days[0].foods)
-                fetch(foodsURL, configurationObject)
-                    .then(resp => resp.json())
-                    
-                caloriesForm.removeEventListener("click", _listener, true);
-
-            }
-            e.target.reset()
+            createFormCalories()
         })
+
+
+        clickEventCaloriesForm(user)
+
     }
+
+    function clickEventCaloriesForm(user) {
+        const caloriesForm = document.querySelector('#calories-form')
+        caloriesForm.addEventListener('submit', function (e) {
+            e.preventDefault()
+            patchCaloriesSnack(user)
+            // e.target.parentNode.remove()
+            caloriesForm.removeEventListener('submit', listener, true)
+            // e.target.reset()
+        }, true);
+    }
+
+    function patchCaloriesSnack(user) {
+        // let food = document.querySelector('input[name="food"]').value
+        let caloriesd = document.querySelector('#calories').value
+
+        let totalCalories = user.days[user.days.length - 1].calories - caloriesd
+
+        let caloriesID = document.querySelector("#calories-number")
+        caloriesID.innerText = totalCalories
+
+        let configurationObject = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                calories: totalCalories
+            })
+        }
+
+        // debugger
+        fetch(daysURL + user.days[user.days.length - 1].id, configurationObject)
+            .then(resp => resp.json())
+        // .then(totalCalories = 0)
+
+
+        renderUser(user)
+
+        // debugger
+        // renderItem()
+    }
+
+    function createFormCalories() {
+        let formContent = document.querySelector('.modal-content')
+        let formBody = document.createElement('div')
+        formBody.classList = 'modal-body'
+        formContent.append(formBody)
+        let form = document.createElement('form')
+        form.id = 'calories-form'
+        formBody.append(form)
+        let food = document.createElement('input')
+        food.innerText = "Add Meal"
+        food.setAttribute('name', 'food')
+        food.setAttribute('placeholder', 'Add Meal')
+        food.setAttribute('id', 'food')
+        food.setAttribute('type', 'text')
+        let cal = document.createElement('input')
+        cal.innerText = "Add Calories"
+        cal.setAttribute('name', 'text')
+        cal.setAttribute('placeholder', 'Add Calories')
+        cal.setAttribute('id', 'calories')
+        cal.setAttribute('type', 'text')
+        let submit = document.createElement('button')
+        submit.innerText = "Submit"
+        submit.setAttribute('type', 'submit')
+        submit.setAttribute('value', 'Submit')
+        form.append(food, cal, submit)
+    }
+
+    // })
+
+    //New Meal
+
+
+    // function renderItem() {
+    //     // console.log('i am here')
+    //     // const mainPage = document.querySelector('.calories-div')
+    //     // const mainBackground = document.querySelector('.modal-backdrop')
+
+
+    //     // renderUserPagne(user)
+    // }
+
+
+
+
 
     /// END OF CONTENT LOADED
 })
-// function createFormCalories(){
-//     let formContent = document.querySelector('.modal-content')
-//     let formBody = document.createElement('div')
-//     formBody.classList = 'modal-body'
-//     formContent.append(formBody)
-//     let form = document.createElement('form')
-//     form.id = 'calories-form'
-//     formBody.append(form)
-//     let food = document.createElement('input')
-//     food.innerText = "Add Meal"
-//     food.setAttribute('name', 'food')
-//     food.setAttribute('placeholder', 'Add Meal')
-//     food.setAttribute('id', 'food')
-//     food.setAttribute('type', 'text')
-//     let cal = document.createElement('input')
-//     cal.innerText = "Add Calories"
-//     cal.setAttribute('name', 'text')
-//     cal.setAttribute('placeholder', 'Add Calories')
-//     cal.setAttribute('id', 'calories')
-//     cal.setAttribute('type', 'text')
-//     let submit = document.createElement('button')
-//     submit.innerText = "Submit"
-//     submit.setAttribute('type', 'submit')
-//     submit.setAttribute('value', 'Submit')
-//     form.append(food, cal, submit)
-// }
-
-// })
-
-//New Meal
-
-
-// function renderItem() {
-//     // console.log('i am here')
-//     // const mainPage = document.querySelector('.calories-div')
-//     // const mainBackground = document.querySelector('.modal-backdrop')
-
-
-//     // renderUserPagne(user)
-// }

@@ -54,6 +54,37 @@
 }
 
 /* LOG IN // SIGN UP PAGE */
+.button-food{
+    color: white;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    border: 1px solid black;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    margin: 30px;
+    text-decoration-style: none;
+
+}
+
+.button-food:hover{
+    border: 1px solid white;
+    -webkit-transition: .5s all;   
+    -webkit-transition-delay: 5s; 
+    -moz-transition: .5s all;   
+    -moz-transition-delay: 5s; 
+    -ms-transition: .5s all;   
+    -ms-transition-delay: 5s; 
+    -o-transition: .5s all;   
+    -o-transition-delay: 5s; 
+    transition: .5s all; 
+    background-color: transparent;
+    color: black;
+    text-decoration-style: none;
+    
+}
 
 .button-log{
     color: white;

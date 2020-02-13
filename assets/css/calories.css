@@ -53,12 +53,14 @@
     text-align: center;
 }
 
+.margin-0 {
+    margin: 0;
+}
 /* LOG IN // SIGN UP PAGE */
 .button-food{
     color: white;
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-    border: 1px solid black;
+    background-color: #5b4282;
+    border: 1px solid white;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 25px;
@@ -70,7 +72,7 @@
 }
 
 .button-food:hover{
-    border: 1px solid white;
+    border: 1px solid black;
     -webkit-transition: .5s all;   
     -webkit-transition-delay: 5s; 
     -moz-transition: .5s all;   

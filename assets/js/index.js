@@ -8,7 +8,6 @@ addEventListener('DOMContentLoaded', function(){
             .then(resp => resp.json())
     } 
 
-
     const formSignUp = document.querySelector('#signup-form')
     formSignUp.addEventListener('submit', function(e){
         e.preventDefault()

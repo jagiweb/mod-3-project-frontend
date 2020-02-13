@@ -442,10 +442,12 @@ addEventListener('DOMContentLoaded', function () {
                 fetch(usersURL + user.id, configurationObject)
                     .then(resp => resp.json())
                     // .then(user => renderUser(user))
+                
             })
         })
     }
     
+
     /// END OF CONTENT LOADED
 })
 // function createFormCalories(){

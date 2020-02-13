@@ -198,36 +198,84 @@ addEventListener('DOMContentLoaded', function () {
 
     function renderBmrBox(user) {
         const boxesDiv = document.createElement('div')
-        boxesDiv.classList = 'row'
+        boxesDiv.classList = 'row margin-top-50'
         const allContent = document.querySelector('.all-content')
         allContent.append(boxesDiv)
 
+        ///// BMR BOX //// 
         const bmrDiv1 = document.createElement('div')
-        bmrDiv1.classList = 'col-lg-6 text-center'
-        let bmrTitle = document.createElement('p')
+        bmrDiv1.classList = 'col-md-4 mb-4 col-lg-4 text-center'
+        const bmrDiv4 = document.createElement('div')
+        bmrDiv4.classList = "card border-left-primary shadow h-100 py-2"
+        bmrDiv1.append(bmrDiv4)
+        const bmrDiv5 = document.createElement('div')
+        bmrDiv5.classList = "card-body"
+        bmrDiv4.append(bmrDiv5)
+        const bmrDiv6 = document.createElement('div')
+        bmrDiv5.append(bmrDiv6)
+        bmrDiv6.classList = "row no-gutters align-items-center"
+        const bmrDiv7 = document.createElement('div')
+        bmrDiv7.classList = "col mr-2"
+        bmrDiv6.append(bmrDiv7)
+        let bmrTitle = document.createElement('div')
+        bmrTitle.classList = "text-xs font-weight-bold text-primary text-uppercase mb-1"
         bmrTitle.innerText = 'My Daily Calorie Allowance: '
-        let bmrNumber = document.createElement('h4')
+        let bmrNumber = document.createElement('div')
+        bmrNumber.id = "bmr-number"
+        bmrNumber.classList = "h5 mb-0 font-weight-bold text-gray-800"
         bmrNumber.innerText = user.bmr
-        // debugger
+        bmrDiv7.append(bmrTitle, bmrNumber)
+
+        //// LINE BETWEEN BOTH BOXES /////// 
+
+        const line = document.createElement('div')
+        line.classList = "col-md-2 mb-4 col-lg-2 text-center"
+        const line1 = document.createElement('div')
+        line1.classList = "col-md-2 mb-4 col-lg-2 text-center"
+
+        //// REMAINING CALORIES BOX ///// 
         const bmrDiv2 = document.createElement('div')
-        bmrDiv2.classList = 'col-lg-6 text-center'
-        let caloriesTitle = document.createElement('p')
-        caloriesTitle.innerText = 'Remaining Calories:  '
-        let caloriesNumber = document.createElement('h4')
-        caloriesNumber.id = "calories-number"
-        // debugger
-
-        const bmrDiv3 = document.createElement('div')
-        bmrDiv3.classList = 'col-lg-6 text-center'
-        let progressTitle = document.createElement('p')
-        progressTitle.innerText = 'Your Weekly Progress:'
-
+        bmrDiv2.classList = 'col-md-4 mb-4 col-lg-4 text-center'
+        const bmrDiv8 = document.createElement('div')
+        bmrDiv8.classList = "card border-left-primary shadow h-100 py-2"
+        bmrDiv2.append(bmrDiv8)
+        const bmrDiv9 = document.createElement('div')
+        bmrDiv9.classList = "card-body"
+        bmrDiv8.append(bmrDiv9)
+        const bmrDiv10 = document.createElement('div')
+        bmrDiv9.append(bmrDiv10)
+        bmrDiv10.classList = "row no-gutters align-items-center"
+        const bmrDiv11 = document.createElement('div')
+        bmrDiv11.classList = "col mr-2"
+        bmrDiv10.append(bmrDiv11)
+        let caloriesTitle = document.createElement('div')
+        caloriesTitle.classList = "text-xs font-weight-bold text-primary text-uppercase mb-1"
+        caloriesTitle.innerText = 'Remaining Calories: '
+        let caloriesNumber = document.createElement('div')
+        caloriesNumber.id = 'calories-number'
+        caloriesNumber.classList = "h5 mb-0 font-weight-bold text-gray-800"
         caloriesNumber.innerText = user.days[user.days.length - 1].calories
+        bmrDiv11.append(caloriesTitle, caloriesNumber)
+        // debugger
+        // const bmrDiv2 = document.createElement('div')
+        // bmrDiv2.classList = 'col-lg-6 text-center'
+        // let caloriesTitle = document.createElement('p')
+        // caloriesTitle.innerText = 'Remaining Calories:  '
+        // let caloriesNumber = document.createElement('h4')
+        // caloriesNumber.id = "calories-number"
+        // // debugger
 
-        bmrDiv2.append(caloriesTitle, caloriesNumber)
-        bmrDiv1.append(bmrTitle, bmrNumber)
-        bmrDiv3.append(progressTitle)
-        boxesDiv.append(bmrDiv1, bmrDiv2, bmrDiv3)
+        // const bmrDiv3 = document.createElement('div')
+        // bmrDiv3.classList = 'col-lg-6 text-center'
+        // let progressTitle = document.createElement('p')
+        // progressTitle.innerText = 'Your Weekly Progress:'
+
+        // caloriesNumber.innerText = user.days[user.days.length - 1].calories
+
+        // bmrDiv2.append(caloriesTitle, caloriesNumber)
+        // bmrDiv1.append(bmrTitle, bmrNumber)
+        // bmrDiv3.append(progressTitle)
+        boxesDiv.append(line, bmrDiv1, bmrDiv2, line1)
     }
 
     function caloriesTrackers(user) {

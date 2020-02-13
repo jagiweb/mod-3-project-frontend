@@ -1,191 +1,37 @@
-<div id="wrapper">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+
+    <div class="modal fade" id="calories-form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Add Meal / Food Item</h2>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="calories-form">
+                        <input id="food" type="text" name="food" placeholder="Add Meal" />
+                        <input id="calories" type="text" name="calories" placeholder="Add Calories" />
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <a href="#" class="btn" id="menu-toggle"><span
-                            class="glyphicon glyphicon-menu-hamburger"></span></a>
-                    <h1 class="text-center">Bootstrap Sidebar</h1>
-                    <h2 class="small text-center">Second Header</h2>
-                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                        perferendis maiores velit ad id delectus nisi eligendi doloremque officia necessitatibus,
-                        repellendus alias omnis, natus nam voluptates dolor vel minus ab?</p>
-                    
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="box">
-                        <p>My daily calorie allowance</p>
-                        <h4>1548</h4>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="box">
-                        <p>Remaining Calories</p>
-                        <h4>1520</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row row-breakfast-lunch">
-                <div class="col-lg-6 breakfast">
-                    <div class="box">
-                        <p>Breakfast</p>
-                        <button>Breakfast form</button> 
-                    </div>
-                </div>
-                <div class="col-lg-6 lunch">
-                    <div class="box">
-                        <p>Lunch</p>
-                        <button>Breakfast form</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row row-dinner-snack">
-                <div class="col-lg-6 dinner">
-                    <div class="box">
-                        <p>Dinner</p>
-                        <button>Breakfast form</button>
-                    </div>
-                </div>
-                <div class="col-lg-6 snack">
-                    <div class="box">
-                        <p>Snack</p>
-                        <button>Breakfast form</button>
-                    </div>
-                </div>
-            </div>
-
-    </div> <!-- .container-fluid -->
-
-</div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog form-dark" role="document">
-    <!--Content-->
-    <div class="modal-content card card-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');">
-      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
-        <!--Header-->
-        <div class="modal-header text-center pb-4">
-          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
-              class="green-text font-weight-bold"><strong> UP</strong></a></h3>
-          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <!--Body-->
-        <div class="modal-body">
-          <!--Body-->
-          <div class="md-form mb-5">
-            <input type="email" id="Form-email5" class="form-control validate white-text">
-            <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
-          </div>
-
-          <div class="md-form pb-3">
-            <input type="password" id="Form-pass5" class="form-control validate white-text">
-            <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
-            <div class="form-group mt-4">
-              <input class="form-check-input" type="checkbox" id="checkbox624">
-              <label for="checkbox624" class="white-text form-check-label">Accept the<a href="#" class="green-text font-weight-bold">
-                  Terms and Conditions</a></label>
-            </div>
-          </div>
-
-          <!--Grid row-->
-          <div class="row d-flex align-items-center mb-4">
-
-            <!--Grid column-->
-            <div class="text-center mb-3 col-md-12">
-              <button type="button" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
-            </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
-
-          <!--Grid row-->
-          <div class="row">
-
-            <!--Grid column-->
-            <div class="col-md-12">
-              <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
-                  Log in</a></p>
-            </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
-
-        </div>
-      </div>
+append to  modal-content
+    <div class="modal-body">
+        <form id="calories-form">
+            <input id="food" type="text" name="food" placeholder="Add Meal" />
+            <input id="calories" type="text" name="calories" placeholder="Add Calories" />
+            <input type="submit" value="Submit" />
+        </form>
     </div>
-    <!--/.Content-->
-  </div>
-</div>
-<!-- Modal -->
-
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#darkModalForm">Launch modal
-    register Form</a>
-</div>
-
-
-
-
-<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog form-dark" role="document">
-    <!--Content-->
-    <div class="modal-content card card-image">
-      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
-        <!--Header-->
-        <div class="modal-header text-center pb-4">
-          <h3 class="modal-title w-100 black-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
-              class="green-text font-weight-bold"><strong> IN</strong></a></h3>
-          <button type="button" class="close black-text" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <!--Body-->
-        <div class="modal-body">
-            <form id="signin-form">
-          <!--Body-->
-          <div class="md-form pb-3">
-            <label data-error="wrong" data-success="right"  for="Form-pass5">Your Email</label>
-            <input id="email" type="text" name="email" class="form-control validate black-text"/>
-          </div>
-          <div class="md-form pb-3">
-            <label data-error="wrong" data-success="right"  for="Form-pass5">Your Password</label>
-            <input id="password" type="text" name="password" class="form-control validate black-text"/>
-          </div> 
-          <!--Grid row-->
-          <div class="row d-flex align-items-center mb-4">
-            <!--Grid column-->
-            <div class="text-center mb-3 col-md-12">
-              <input type="submit" value="Submit" class="btn btn-success btn-block btn-rounded z-depth-1">
-            </div>
-            <!--Grid column-->
-          </div>
-        </div>
-    </form>
-      </div>
+    <div class="modal-footer">
+        <button id="add-more" type="button" class="btn btn-secondary" data-dismiss="modal">Add Item</button>
     </div>
-    <!--/.Content-->
-  </div>
-</div>

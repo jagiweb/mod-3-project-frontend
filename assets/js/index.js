@@ -29,7 +29,6 @@ addEventListener('DOMContentLoaded', function () {
         }
         let totalBMR = bmr.toFixed(1)
 
-        // debugger
         const newObj = {
             username: username,
             email: email,
@@ -57,7 +56,7 @@ addEventListener('DOMContentLoaded', function () {
         e.target.reset()
 
 
-    })
+    }) /// end of event listener for sign up form ///
 
     function postDayForUser(user) {
 
@@ -81,28 +80,8 @@ addEventListener('DOMContentLoaded', function () {
         fetch(daysURL, configurationObject)
             .then(resp => resp.json())
             .then(user => renderUser(user))
-            // renderUser(user)
-    }
 
-    //Existing User 
-    // const formSignIn = document.querySelector('#signin-form')
-    // formSignIn.addEventListener('submit', function (e) {
-    //     e.preventDefault()
-    //     return fetchAllUsers()
-    //         .then(function (users) {
-    //             const email = document.querySelector('#email-signin').value
-    //             const password = document.querySelector('#password-signin').value
-    //             for (let i = 0; i < users.length; i++) {
-    //                 debugger
-    //                 if (users[i].email === email && users[i].password_digest === password) {
-    //                 renderUser(users[i])
-    //             } else {
-    //                 console.log('works')
-    //             }
-
-    //         }
-    //     })
-    // })
+    } /// end of post day for user function ///
 
     const formSign = document.querySelector('#signin-form')
     formSign.addEventListener('submit', function (e) {
@@ -133,12 +112,9 @@ addEventListener('DOMContentLoaded', function () {
         const mainBackground = document.querySelector('.modal-backdrop')
         mainBackground.remove()
         mainPage.remove()
-        // Display results
-        // showBMR(user);
-
         renderUserPage(user)
 
-    }
+    } // end of render user function ///
 
 
     function renderUserPage(user) {
@@ -182,10 +158,10 @@ addEventListener('DOMContentLoaded', function () {
         buttonToggle.append(spanTag)
         /// maybe another function here
         const introTag = document.createElement('h3')
-        introTag.innerText = `Hello ${user.username},`
+        // introTag.innerText = `Hello ${user.username},`
         introTag.classList = "font-lemonada"
         const welcomeTag = document.createElement('h2')
-        welcomeTag.innerText = "Welcome to MyCalories!"
+        welcomeTag.innerText = `Welcome ${user.username}, to MyCalories!`
         welcomeTag.classList = "font-federicka"
         const infoTag = document.createElement('p')
         infoTag.innerText = "Basal Metabolic Rate (BMR) is the number of calories required to keep your body functioning at rest. This is the amount of calories your body burns even if you did nothing all day."
@@ -198,7 +174,7 @@ addEventListener('DOMContentLoaded', function () {
         sideBarDiv.append(menuBar)
         renderBmrBox(user)
         caloriesTrackers(user)
-    }
+    } /// end of render user page function ///
 
     function renderBmrBox(user) {
         const boxesDiv = document.createElement('div')
@@ -260,27 +236,8 @@ addEventListener('DOMContentLoaded', function () {
         caloriesNumber.classList = "h5 mb-0 font-weight-bold text-gray-800"
         caloriesNumber.innerText = user.days[user.days.length - 1].calories
         bmrDiv11.append(caloriesTitle, caloriesNumber)
-        // debugger
-        // const bmrDiv2 = document.createElement('div')
-        // bmrDiv2.classList = 'col-lg-6 text-center'
-        // let caloriesTitle = document.createElement('p')
-        // caloriesTitle.innerText = 'Remaining Calories:  '
-        // let caloriesNumber = document.createElement('h4')
-        // caloriesNumber.id = "calories-number"
-        // // debugger
-
-        // const bmrDiv3 = document.createElement('div')
-        // bmrDiv3.classList = 'col-lg-6 text-center'
-        // let progressTitle = document.createElement('p')
-        // progressTitle.innerText = 'Your Weekly Progress:'
-
-        // caloriesNumber.innerText = user.days[user.days.length - 1].calories
-
-        // bmrDiv2.append(caloriesTitle, caloriesNumber)
-        // bmrDiv1.append(bmrTitle, bmrNumber)
-        // bmrDiv3.append(progressTitle)
         boxesDiv.append(line, bmrDiv1, bmrDiv2, line1)
-    }
+    } // end of bmrbox function
 
     function caloriesTrackers(user) {
         updateBmr(user)
@@ -295,14 +252,13 @@ addEventListener('DOMContentLoaded', function () {
         divColTitle.classList = "col-lg-12"
         const titleAddCalories = document.createElement('h3')
         titleAddCalories.innerText = "Add your calories"
-        titleAddCalories.classList = "text-center font-lemonada"
+        titleAddCalories.classList = "text-center font-lemonada margin-top-50"
         divColTitle.append(titleAddCalories)
         rowForTitle.append(divColTitle)
-        // divColTitle.append(titleAddCalories)
-        allContentDiv.append(rowForTitle, breakfastLunchDiv, dinnerSnackDiv)
 
-        const breakfastDiv = document.createElement('div')
-        breakfastDiv.classList = 'col-sm-3 text-center margin-0'
+        const col12Div = document.createElement('div')
+        col12Div.classList = 'col-md-12 text-center margin-0'
+        allContentDiv.append(rowForTitle, col12Div)
         let breakfastButton = document.createElement('button')
         breakfastButton.setAttribute('type', 'button')
         breakfastButton.setAttribute('data-toggle', 'modal')
@@ -310,10 +266,7 @@ addEventListener('DOMContentLoaded', function () {
         breakfastButton.setAttribute('data-target', '#calories-form')
         breakfastButton.innerText = 'Breakfast'
         breakfastButton.classList = "button-food"
-        breakfastDiv.append(breakfastButton)
-
-        const lunchDiv = document.createElement('div')
-        lunchDiv.classList = 'col-sm-3 text-center margin-0'
+        
         let lunchButton = document.createElement('button')
         lunchButton.setAttribute('type', 'button')
         lunchButton.setAttribute('data-toggle', 'modal')
@@ -321,12 +274,7 @@ addEventListener('DOMContentLoaded', function () {
         lunchButton.setAttribute('data-target', '#calories-form')
         lunchButton.innerText = 'Lunch'
         lunchButton.classList = "button-food"
-        lunchDiv.append(lunchButton)
 
-        // breakfastLunchDiv.append()
-
-        const dinnerDiv = document.createElement('div')
-        dinnerDiv.classList = 'col-sm-3 text-center margin-0'
         let dinnerButton = document.createElement('button')
         dinnerButton.setAttribute('type', 'button')
         dinnerButton.setAttribute('data-toggle', 'modal')
@@ -334,10 +282,7 @@ addEventListener('DOMContentLoaded', function () {
         dinnerButton.setAttribute('data-target', '#calories-form')
         dinnerButton.innerText = 'Dinner'
         dinnerButton.classList = "button-food"
-        dinnerDiv.append(dinnerButton)
-
-        const snackDiv = document.createElement('div')
-        snackDiv.classList = 'col-sm-3 text-center margin-0'
+        
         let snackButton = document.createElement('button')
         snackButton.setAttribute('type', 'button')
         snackButton.setAttribute('data-toggle', 'modal')
@@ -345,26 +290,18 @@ addEventListener('DOMContentLoaded', function () {
         snackButton.setAttribute('data-target', '#calories-form')
         snackButton.classList = "button-food"
         snackButton.innerText = 'Snack'
-        snackDiv.append(snackButton)
-        
-        // dinnerSnackDiv.append(dinnerDiv, snackDiv)
-        breakfastLunchDiv.append(breakfastDiv, lunchDiv, dinnerDiv, snackDiv)
 
-        // snackButton.addEventListener("click", function (e) {
-        //     e.preventDefault()
-        //     createFormCalories()
-        // })
+        col12Div.append(breakfastButton, lunchButton, dinnerButton, snackButton)
+        // breakfastLunchDiv.append(breakfastDiv, lunchDiv, dinnerDiv, snackDiv)
 
         /////////////// HERE WAS THE PATCH WORKING ////////////////
         const caloriesForm = document.querySelector('#calories-form')
         caloriesForm.addEventListener('submit', function _listener(e) {
-            // debugger
             e.preventDefault()
             let food = document.querySelector('input[name="food"]').value
             let caloriesd = document.querySelector('input[name="calories"]').value
             if (caloriesd) {
                 let caloriesID = document.querySelector("#calories-number")
-                // let totalCalories = user.days[user.days.length - 1].calories - caloriesd
                 caloriesID.innerText = parseInt(caloriesID.innerText) - caloriesd
 
                 let configurationObject = {
@@ -389,31 +326,30 @@ addEventListener('DOMContentLoaded', function () {
             }
             e.target.reset()
         })
-    }
+    } /// end of calories tracker function /// 
 
-        function foodItem(user) {
-            let caloriesd = document.querySelector('input[name="calories"]').value
-                let caloriesID = document.querySelector("#calories-number")
-                caloriesID.innerText = parseInt(caloriesID.innerText) - caloriesd
-            const configurationObject = {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({
-                    calories: caloriesID.innerText
-                })
-            }
-                fetch(daysURL + user.days[user.days.length - 1].id, configurationObject)
-                    .then(resp => resp.json())
-
+    function foodItem(user) {
+        let caloriesd = document.querySelector('input[name="calories"]').value
+            let caloriesID = document.querySelector("#calories-number")
+            caloriesID.innerText = parseInt(caloriesID.innerText) - caloriesd
+        const configurationObject = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                calories: caloriesID.innerText
+            })
         }
+            fetch(daysURL + user.days[user.days.length - 1].id, configurationObject)
+                .then(resp => resp.json())
+
+    } /// end of food item function /// 
     
     function updateBmr(user) {
         const updateBMR = document.querySelector("#brm-update")
         updateBMR.addEventListener('click', function (e) {
-            console.log('lala')
             const updateBMRform = document.querySelector('#bmr-form')
             updateBMRform.addEventListener('submit', function (e) {
                 e.preventDefault()
@@ -448,14 +384,16 @@ addEventListener('DOMContentLoaded', function () {
 
                 fetch(usersURL + user.id, configurationObject)
                     .then(resp => resp.json())
-                    // .then(user => renderUser(user))
-                    e.target.reset()
-            })
+
+                e.target.reset()
+            }) // end of event listener for patch user info ///
         })
-    }
+    }  /// end of update bmr function ///
     
-    /// END OF CONTENT LOADED
-})
+    
+})/// END OF CONTENT LOADED
+
+
 // function createFormCalories(){
 //     let formContent = document.querySelector('.modal-content')
 //     let formBody = document.createElement('div')

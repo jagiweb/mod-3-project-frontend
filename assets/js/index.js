@@ -283,65 +283,72 @@ addEventListener('DOMContentLoaded', function () {
     }
 
     function caloriesTrackers(user) {
-        const allContentDiv = document.querySelector('.all-content')
         updateBmr(user)
+        const allContentDiv = document.querySelector('.all-content')
+        let rowForTitle = document.createElement('div')
+        rowForTitle.classList = "row"
         const breakfastLunchDiv = document.createElement('div')
         breakfastLunchDiv.classList = 'row'
         const dinnerSnackDiv = document.createElement('div')
         dinnerSnackDiv.classList = 'row'
-        allContentDiv.append(breakfastLunchDiv, dinnerSnackDiv)
+        let divColTitle = document.createElement('div')
+        divColTitle.classList = "col-lg-12"
+        const titleAddCalories = document.createElement('h3')
+        titleAddCalories.innerText = "Add your calories"
+        titleAddCalories.classList = "text-center font-lemonada"
+        divColTitle.append(titleAddCalories)
+        rowForTitle.append(divColTitle)
+        // divColTitle.append(titleAddCalories)
+        allContentDiv.append(rowForTitle, breakfastLunchDiv, dinnerSnackDiv)
 
         const breakfastDiv = document.createElement('div')
-        breakfastDiv.classList = 'col-lg-6 text-center'
-        let breakfastTitle = document.createElement('p')
-        breakfastTitle.innerText = 'Breakfast'
+        breakfastDiv.classList = 'col-sm-3 text-center margin-0'
         let breakfastButton = document.createElement('button')
         breakfastButton.setAttribute('type', 'button')
         breakfastButton.setAttribute('data-toggle', 'modal')
         breakfastButton.setAttribute('id', 'add-calories')
         breakfastButton.setAttribute('data-target', '#calories-form')
-        breakfastButton.innerText = 'Add calories'
-        breakfastDiv.append(breakfastTitle, breakfastButton)
+        breakfastButton.innerText = 'Breakfast'
+        breakfastButton.classList = "button-food"
+        breakfastDiv.append(breakfastButton)
 
         const lunchDiv = document.createElement('div')
-        lunchDiv.classList = 'col-lg-6 text-center'
-        let lunchTitle = document.createElement('p')
-        lunchTitle.innerText = 'Lunch'
+        lunchDiv.classList = 'col-sm-3 text-center margin-0'
         let lunchButton = document.createElement('button')
         lunchButton.setAttribute('type', 'button')
         lunchButton.setAttribute('data-toggle', 'modal')
         lunchButton.setAttribute('id', 'add-calories')
         lunchButton.setAttribute('data-target', '#calories-form')
-        lunchButton.innerText = 'Add calories'
-        lunchDiv.append(lunchTitle, lunchButton)
+        lunchButton.innerText = 'Lunch'
+        lunchButton.classList = "button-food"
+        lunchDiv.append(lunchButton)
 
-        breakfastLunchDiv.append(breakfastDiv, lunchDiv)
+        // breakfastLunchDiv.append()
 
         const dinnerDiv = document.createElement('div')
-        dinnerDiv.classList = 'col-lg-6 text-center'
-        let dinnerTitle = document.createElement('p')
-        dinnerTitle.innerText = 'Dinner'
+        dinnerDiv.classList = 'col-sm-3 text-center margin-0'
         let dinnerButton = document.createElement('button')
         dinnerButton.setAttribute('type', 'button')
         dinnerButton.setAttribute('data-toggle', 'modal')
         dinnerButton.setAttribute('id', 'add-calories')
         dinnerButton.setAttribute('data-target', '#calories-form')
-        dinnerButton.innerText = 'Add calories'
-        dinnerDiv.append(dinnerTitle, dinnerButton)
+        dinnerButton.innerText = 'Dinner'
+        dinnerButton.classList = "button-food"
+        dinnerDiv.append(dinnerButton)
 
         const snackDiv = document.createElement('div')
-        snackDiv.classList = 'col-lg-6 text-center'
-        let snackTitle = document.createElement('p')
-        snackTitle.innerText = 'Snack'
+        snackDiv.classList = 'col-sm-3 text-center margin-0'
         let snackButton = document.createElement('button')
         snackButton.setAttribute('type', 'button')
         snackButton.setAttribute('data-toggle', 'modal')
         snackButton.setAttribute('id', 'add-calories')
         snackButton.setAttribute('data-target', '#calories-form')
-        snackButton.innerText = 'Add calories'
-        snackDiv.append(snackTitle, snackButton)
-
-        dinnerSnackDiv.append(dinnerDiv, snackDiv)
+        snackButton.classList = "button-food"
+        snackButton.innerText = 'Snack'
+        snackDiv.append(snackButton)
+        
+        // dinnerSnackDiv.append(dinnerDiv, snackDiv)
+        breakfastLunchDiv.append(breakfastDiv, lunchDiv, dinnerDiv, snackDiv)
 
         // snackButton.addEventListener("click", function (e) {
         //     e.preventDefault()
@@ -442,10 +449,10 @@ addEventListener('DOMContentLoaded', function () {
                 fetch(usersURL + user.id, configurationObject)
                     .then(resp => resp.json())
                     // .then(user => renderUser(user))
-                
+                    e.target.reset()
             })
         })
-    }
+
     
 
     /// END OF CONTENT LOADED

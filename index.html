@@ -119,7 +119,7 @@
             </div>
         </div>
     </div>
-
+    <!-- signin form from here -->
     <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
@@ -163,58 +163,151 @@
 </div>
 </div>
 <!-- MODAL FORM FOR ADD CALORIES -->
-    <div class="container calories-div">
-        <div class="modal fade" id="calories-form">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">Add Meal / Food Item</h2>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span>&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="calories-form">
-                            <input id="food" type="text" name="food" placeholder="Add Meal" />
-                            <input id="calories" type="text" name="calories" placeholder="Add Calories" />
-                            <input type="submit" value="Submit"/>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
+<div class="container calories-div">
+    <div class="modal fade" id="calories-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog form-dark" role="document">
+        <!--Content-->
+        <div class="modal-content card card-image">
+          <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+            <!--Header-->
+            <div class="modal-header text-center pb-4">
+              <h3 class="modal-title w-100 black-text font-weight-bold" id="myModalLabel"><strong>Add Meal / </strong> <a
+                  class="green-text font-weight-bold"><strong> Food Item</strong></a></h3>
+              <button type="button" class="close black-text" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <!--Body-->
+            <div class="modal-body">
+                <form id="calories-form">
+              <!--Body-->
+              <div class="md-form pb-3">
+                <label data-error="wrong" data-success="right"  for="Form-pass5">Add Meal</label>
+                <input id="food" type="text" name="food" class="form-control validate black-text"/>
+              </div>
+              <div class="md-form pb-3">
+                <label data-error="wrong" data-success="right"  for="Form-pass5">Add Calories</label>
+                <input id="calories" type="text" name="calories" class="form-control validate black-text"/>
+              </div> 
+              <!--Grid row-->
+              <div class="row d-flex align-items-center mb-4">
+                <!--Grid column-->
+                <div class="text-center mb-3 col-md-12">
+                  <input type="submit" value="Add Calories" class="btn btn-success btn-block btn-rounded z-depth-1">
+                </div>
+                <!--Grid column-->
+              </div>
+            </div>
+        </form>
+          </div>
         </div>
+        <!--/.Content-->
+      </div>
+    </div>
+  </div>
+  <!-- END OF ADD CALORIES FORM  -->
         <div class="container calories-div">
             
         </div>
 
         <!-- ADD FORM FOR UPDATE BMR -->
-    <div class="container bmrupdate-div">
-        <div class="modal fade" id="bmr-form">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">UPDATE BMR</h2>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span>&times;</span>
-                        </button>
+        <div class="container bmrupdate-div">
+            <div class="modal fade" id="bmr-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog form-dark" role="document">
+                <!--Content-->
+                <div class="modal-content card card-image">
+                  <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+                    <!--Header-->
+                    <div class="modal-header text-center pb-4">
+                      <h3 class="modal-title w-100 black-text font-weight-bold" id="myModalLabel"><strong>UDATE YOUR</strong> <a
+                          class="green-text font-weight-bold"><strong> BMR</strong></a></h3>
+                      <button type="button" class="close black-text" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
-                    <div class="bmr-body">
+                    <!--Body-->
+                    <div class="modal-body">
                         <form id="bmr-form">
-                            <input id="weight" type="text" name="weight" placeholder="Weight" />
-                            <input id="height" type="text" name="height" placeholder="Height" />
-                            <input id="age" type="text" name="age" placeholder="Age" />
-                            <input type="submit" value="Submit" />
-                        </form>
+                      <!--Body-->
+                      <div class="md-form pb-3">
+                        <label data-error="wrong" data-success="right"  for="Form-pass5">Edit your weight</label>
+                        <input id="weight" type="text" name="weight" class="form-control validate black-text"/>
+                      </div>
+                      <div class="md-form pb-3">
+                        <label data-error="wrong" data-success="right"  for="Form-pass5">Edit your height</label>
+                        <input id="height" type="text" name="height"  class="form-control validate black-text"/>
+                      </div> 
+                      <div class="md-form pb-3">
+                        <label data-error="wrong" data-success="right"  for="Form-pass5">Edit your age</label>
+                        <input id="age" type="text" name="age" class="form-control validate black-text"/>
+                      </div> 
+                      <!--Grid row-->
+                      <div class="row d-flex align-items-center mb-4">
+                        <!--Grid column-->
+                        <div class="text-center mb-3 col-md-12">
+                          <input type="submit" value="Update BMR" class="btn btn-success btn-block btn-rounded z-depth-1">
+                        </div>
+                        <!--Grid column-->
+                      </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+                </form>
+                  </div>
                 </div>
+                <!--/.Content-->
+              </div>
             </div>
-        </div>
+          </div>
+
+          <!-- EDIT MEAL FORM -->
+          <div class="container calories-div">
+          <div class="modal fade" id="update-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog form-dark" role="document">
+                  <!--Content-->
+                  <div class="modal-content card card-image">
+                      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+                          <!--Header-->
+                          <div class="modal-header text-center pb-4">
+                              <h3 class="modal-title w-100 black-text font-weight-bold" id="myModalLabel"><strong>UPDATE </strong> <a class="green-text font-weight-bold"><strong> MEAL
+                                          ITEM</strong></a></h3>
+                              <button type="button" class="close black-text" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <!--Body-->
+                          <div class="modal-body">
+                              <form id="update-form">
+                                  <!--Body-->
+                                  <div class="md-form pb-3">
+                                      <label data-error="wrong" data-success="right" for="Form-pass5">Update Meal Item</label>
+                                      <input id="meal-update" type="text" name="food"
+                                          class="form-control validate black-text" />
+                                  </div>
+                                  <div class="md-form pb-3">
+                                      <label data-error="wrong" data-success="right" for="Form-pass5">Update
+                                          Calories</label>
+                                      <input id="calories-update" type="text" name="calories"
+                                          class="form-control validate black-text" />
+                                  </div>
+                                  <!--Grid row-->
+                                  <div class="row d-flex align-items-center mb-4">
+                                      <!--Grid column-->
+                                      <div class="text-center mb-3 col-md-12">
+                                          <input type="submit" value="Update Meal"
+                                              class="btn btn-success btn-block btn-rounded z-depth-1">
+                                      </div>
+                                      <!--Grid column-->
+                                  </div>
+                          </div>
+                          </form>
+                      </div>
+                  </div>
+                  <!--/.Content-->
+              </div>
+          </div>
+          </div>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
